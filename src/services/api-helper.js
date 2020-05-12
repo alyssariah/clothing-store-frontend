@@ -56,8 +56,21 @@ export const makeCartItem = async (input, token) => {
         return err
     }
 }
-export const getDeleteLog = async (id, token) => {
-    try{const resp = await api.delete(`/api/food/${id}/`, {
+export const getCartItems = async (token) => {
+    try{const resp = await api.get('/api/items-json/', {
+        headers: {
+            authorization: 'JWT ' + token
+        }
+    })
+    return resp
+    }
+    catch (err){
+        console.log(err)
+        return err
+    }
+}
+export const deleteCartItem = async (id, token) => {
+    try{const resp = await api.delete(`/api/items/${id}/`, {
         headers: {
             authorization: 'JWT ' + token
         }
@@ -68,8 +81,8 @@ export const getDeleteLog = async (id, token) => {
         return err
     }
 }
-export const getUpdateLog = async (id, body, token) => {
-    try{const resp = await api.patch(`/api/foodview/${id}/`, body, {
+export const updateCartItem = async (id, body, token) => {
+    try{const resp = await api.patch(`/api/items/${id}/`, body, {
         headers: {
             authorization: 'JWT ' + token
         }

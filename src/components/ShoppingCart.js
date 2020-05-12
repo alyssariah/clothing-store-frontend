@@ -1,107 +1,74 @@
-import React, { Component } from "react";
+import React, {useState, useEffect} from "react";
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 import '../sass/Cart.sass'
+import {getCartItems, deleteCartItem} from '../services/api-helper'
+import CartItem from './CartItem'
 
-class eCommercePage extends Component {
-state = {
-  data: [
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg",
-        title: "iPhone",
-        subTitle: "Apple",
-        color: "White",
-        price: "800",
-        qty: "2"
-      },
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg",
-        title: "Headphones",
-        subTitle: "Sony",
-        color: "Red",
-        price: "200",
-        qty: "2"
-      },
-      {
-        src: "https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg",
-        title: "iPad Pro",
-        subTitle: "Apple",
-        color: "Gold",
-        price: "600",
-        qty: "1"
-      },
-    ],
-    columns: [
-      {
-        label: '',
-        field: 'img',
-      },
-      {
-        label: <strong>Product</strong>,
-        field: 'product'
-      },
-      {
-        label: <strong>Color</strong>,
-        field: 'color'
-      },
-      {
-        label: <strong>Price</strong>,
-        field: 'price'
-      },
-      {
-        label: <strong>QTY</strong>,
-        field: 'qty'
-      },
-      {
-        label: <strong>Amount</strong>,
-        field: 'amount'
-      },
-      {
-        label: '',
-        field: 'button'
-      }
-  ]
-}
+function ShoppingCart(props) {
+  const [columns, setColumns] = useState([
+    {
+      label: <strong>Product</strong>,
+      field: 'img',
+    },
+    {
+      label: '',
+      field: 'product'
+    },
+    {
+      label: <strong>Size</strong>,
+      field: 'color'
+    },
+    {
+      label: <strong>Price</strong>,
+      field: 'price'
+    },
+    {
+      label: <strong>Qty</strong>,
+      field: 'qty'
+    },
+    {
+      label: <strong>Remove</strong>,
+      field: 'button'
+    }
+  ])
 
-render() {
+  // useEffect(()=>{
+  //   const apiCall = async() => {
+  //     let res = await getCartItems(props.user.token)
+  //     console.log(res.data)
+  //     setData(res.data)
+  //   }
+  //   apiCall()
 
-    const rows = [];
-    const { columns, data } = this.state;
+  // },[])
 
-    data.map(row => {
-      return rows.push(
-        {
-        'img': <img src={row.src} alt="" className="img-fluid z-depth-0" style={{height: '10vh'}}/>,
-        'product': [<h5 className="mt-3" key={new Date().getDate + 1}><strong>{row.title}</strong></h5>, <p key={new
-          Date().getDate} className="text-muted">{row.subTitle}</p>],
-        'size': row.color,
-        'price': `$${row.price}`,
-        'qty': 
-        <MDBInput type="number" default={row.qty} className="form-control" style={{ width: "100px" }} />,
-        'amount': <strong>${row.qty * row.price}</strong>,
-        'button':
-        <MDBTooltip placement="top">
-            <MDBBtn color="primary" size="sm">
-                X
-            </MDBBtn>
-            <div>Remove item</div>
-        </MDBTooltip>
-        }
+  const removeItem = async(id) => {
+    const res = await deleteCartItem(id, props.user.token)
+    let res2 = await getCartItems(props.user.token)
+    props.setCart(res2.data)
+  }
+  const sortedCart = props.cart.sort(function(a,b){
+    return a.id - b.id 
+  })
+    const rows = sortedCart.map((item, index) => {
+      console.log('item', item)
+      return(
+        CartItem(item, removeItem, props.user, props.setCart)
       )
     });
-
     return (
     <div className="cart">
       <div className="left">
-      <MDBRow className="my-3" center style={{height: '70vh'}}>
+      {/* <MDBRow className="my-3" center style={{height: '70vh'}}>
         <MDBCard className="w-55">
-          <MDBCardBody >
+          <MDBCardBody > */}
             <MDBTable className="product-table">
               <MDBTableHead className="font-weight-bold" color="mdb-color lighten-5" columns={columns} />
               <MDBTableBody rows={rows} />
             </MDBTable>
-          </MDBCardBody>
+          {/* </MDBCardBody>
         </MDBCard>
-      </MDBRow>
+      </MDBRow> */}
       </div>
       <div class="card">
           <div class="card-body">
@@ -147,7 +114,6 @@ render() {
     </div>
   
     );
-  }
 }
 
-export default eCommercePage;
+export default ShoppingCart;

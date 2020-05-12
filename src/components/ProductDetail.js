@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 import '../sass/Detail.sass'
 import {makeCartItem} from '../services/api-helper'
+import { Redirect } from 'react-router-dom';
 
 
 function ProductDetail(props){
@@ -9,7 +10,7 @@ function ProductDetail(props){
     const [input, setInput] = useState({
         "product": props.detail.id,
         "qty": 1,
-        "size": ''
+        "size": 'S'
     })
 
     const changeSize = (size) => {
@@ -32,15 +33,11 @@ function ProductDetail(props){
 
     const addToCart = async(e) => {
         e.preventDefault()
-        console.log("input", input)
         if(!input.size){
-            console.log("no size")
-            console.log(props.user.token)
-            console.log("input", input)
         }
         else {
         const res = await makeCartItem(input, props.user.token)
-        console.log("you did it", res)
+        props.changeCart()
         }
     }
     return(

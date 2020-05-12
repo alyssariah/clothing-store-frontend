@@ -16,6 +16,7 @@ import {getProducts} from './services/api-helper'
 import Home from './components/Home'
 import SearchPage from './components/SearchPage'
 import ProductDetail from './components/ProductDetail'
+import {getCartItems} from './services/api-helper'
 
 function App() {
   const [user, setUser] = useState(()=>{
@@ -33,16 +34,22 @@ function App() {
     const result = localStorage.getItem('detail')
     return result? JSON.parse(result): []
   })
-
+  const [cart, setCart] = useState([])
 
   useEffect(()=>{
     const makeAPICall=async()=>{
       const res = await getProducts()
       setProducts(res.data)
+      let res2 = await getCartItems(user.token)
+      setCart(res2.data)
     }
     makeAPICall()
   },[])
 
+  const changeCart = async() => {
+    let res = await getCartItems(user.token)
+    setCart(res.data)
+  }
 
     return (
       <>
@@ -54,7 +61,6 @@ function App() {
           </div>
           <div className="cartsection">
           {user ? 
-          <>
             <MDBDropdown>
               <MDBDropdownToggle nav caret style={{color: 'white'}}>
                 <MDBIcon far icon="user" /><span style={{marginLeft: '15px'}}>My Account</span></MDBDropdownToggle>
@@ -63,8 +69,8 @@ function App() {
                   <MDBDropdownItem href="#!">Orders</MDBDropdownItem>
                   <Link to='/'><MDBDropdownItem href="#!"onClick={()=>{setUser(); localStorage.setItem('user', JSON.stringify(''))}}>Log Out</MDBDropdownItem></Link>
               </MDBDropdownMenu>
-            </MDBDropdown>
-            <Link to='/cart'><MDBIcon icon="shopping-basket" /></Link></> :<><Link to='/login' className="profile"><MDBIcon far icon="user" /><span>Login</span></Link><Link to='/cart'><MDBIcon icon="shopping-basket" /><span className="counter">22</span></Link></>}
+            </MDBDropdown>: <Link to='/login' className="profile"><MDBIcon far icon="user" /><span>Login</span></Link>}
+          <Link to='/cart'><MDBIcon icon="shopping-basket" /><span className="counter">{cart.length >0? cart.length: ''}</span></Link>
           </div>
         </header>
         <NavbarPage setCategory={setCategory} setSearchData={setSearchData}/>
@@ -75,8 +81,8 @@ function App() {
           <Route path='/search'><SearchPage setDetail={setDetail} searchData={searchData}/></Route>
           <Route path='/login'><LogIn setUser={setUser} /></Route>
           <Route path='/signup'><SignUp setUser={setUser}/></Route>
-          <Route path='/detail'><ProductDetail detail={detail} user={user}/></Route>
-          <Route path='/cart'><ShoppingCart /></Route>
+          <Route path='/detail'><ProductDetail detail={detail} user={user} changeCart={changeCart}/></Route>
+          <Route path='/cart'><ShoppingCart cart={cart} setCart={setCart} user={user}/></Route>
           <Route path='/checkout'><Checkout /></Route>
           <Redirect to ='/'></Redirect>
         </Switch> 
