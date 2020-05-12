@@ -37,7 +37,8 @@ function ShoppingCart(props) {
   const removeItem = async(id) => {
     const res = await deleteCartItem(id, props.user.token)
     let res2 = await getCartItems(props.user.token)
-    props.setCart(res2.data)
+    let results = res2.data.filter((item, index)=> item.ordered === false)
+    props.setCart(results)
   }
   const sortedCart = props.cart.sort(function(a,b){
     return a.id - b.id 
@@ -59,7 +60,14 @@ function ShoppingCart(props) {
       const res = await updateCartItem(sortedCart[i].id, {"ordered": true}, props.user.token)
     }
     const res = await makeOrder({"items": items, "total": mytotal}, props.user.token)
-    console.log(res)
+    let res2 = await getCartItems(props.user.token)
+    let results = res2.data.filter((item, index)=> item.ordered === false)
+    props.setCart(results)
+  }
+  if(rows.length === 0){
+    return(
+      <h3 style={{marginTop: '30px', color:'grey'}}>Your shopping cart is empty</h3>
+    )
   }
   return (
   <div className="cart">
@@ -75,7 +83,7 @@ function ShoppingCart(props) {
           <h5>Subtotal: <span>${mytotal}.00</span></h5>
           <hr/>
           <div className="checkout">
-          <MDBBtn className='mt-4' color="primary" size="m" onClick={handleOrder}>
+          <MDBBtn className="cart-btn"  color="lightGreen" size="m" onClick={handleOrder}>
           <MDBIcon icon="lock" style={{marginRight: '8px'}} /> Checkout
           </MDBBtn>
           </div>

@@ -21,7 +21,7 @@ function Orders(props){
               return(
                   <div className="orderItem">
                       <div>
-                      <div className="product"><img src={item.product.pictureUrl} style={{height: '80px', width: '80px'}}/>
+                      <div className="product"><img src={item.product.pictureUrl} style={{height: '80px', width: '100px'}}/>
                       <h3>{item.product.name} <div className="qty">Qty: {item.qty}</div> <p>{item.product.description}</p></h3></div></div>
                       ${item.product.price}.00
                   </div>

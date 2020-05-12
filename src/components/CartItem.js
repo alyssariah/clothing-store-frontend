@@ -6,7 +6,8 @@ function CartItem(item, removeItem, user, setCart){
     const handleQty = async(e) => {
         const res = await updateCartItem(item.id, {"qty": e.target.value}, user.token)
         let res2 = await getCartItems(user.token)
-        setCart(res2.data)
+        let results = res2.data.filter((item, index)=> item.ordered === false)
+        setCart(results)
     }
     
     return(
@@ -19,7 +20,7 @@ function CartItem(item, removeItem, user, setCart){
             'qty': <h5 className="mt-3" ><input style={{width: '2.5vw', textAlign: 'center'}}class="quantity" value={item.qty}  min='1' onChange={handleQty} type="number"/></h5>,
             'button':
             <MDBTooltip placement="top">
-                <MDBBtn className='mt-3' color="primary" size="sm" onClick={()=>{removeItem(item.id)}}>
+                <MDBBtn className='mt-3' color="light" size="sm" onClick={()=>{removeItem(item.id)}}>
                     X
                 </MDBBtn>
                 <div>Remove item</div>

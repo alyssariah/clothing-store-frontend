@@ -50,7 +50,8 @@ function App() {
 
   const changeCart = async() => {
     let res = await getCartItems(user.token)
-    setCart(res.data)
+    let results = res.data.filter((item, index)=> item.ordered === false)
+    setCart(results)
   }
 
     return (
