@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Quattrocento&display=swap');
+@mixin center
+    display: flex
+    justify-content: center
+    align-items: center
+*
+    box-sizing: border-box
+body 
+    font-family: 'Quattrocento', serif
+    background-color: white
+.information
+    padding-top: 10vh
+    width: 100vw
+    @include center
+    overflow: scroll
+section
+    width: 80vw
+.row 
+    @include center
+    width: 100vw
+header
+    height: 4vh
+    display: flex
+    justify-content: space-between
+    align-items: center
+    //background-color: #E1DCD7
+    background-color: #555553
+    position: fixed
+    width: 100vw
+    z-index: 2
+.icons
+    padding-left: 10px
+    display: flex
+    justify-content: space-between
+    i
+        margin: 5px
+    a
+        color: white
+.cartsection
+    height: 3vh
+    display: flex
+    justify-content: space-around
+    align-items: center
+    padding-right: 30px
+    a
+        color: white
+.profile
+    height: 3vh
+    margin-right: 20px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    span
+        margin: 0 10px
+        height: 5vh
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 18px
+.cardbody
+    height: 90vh
+
+   
