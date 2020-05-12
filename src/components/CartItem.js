@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
 import {updateCartItem, getCartItems,} from '../services/api-helper'
 
@@ -7,7 +7,8 @@ function CartItem(item, removeItem, user, setCart){
         const res = await updateCartItem(item.id, {"qty": e.target.value}, user.token)
         let res2 = await getCartItems(user.token)
         setCart(res2.data)
-      }
+    }
+    
     return(
         {
             'img': <img src={item.product.pictureUrl} alt="" className="img-fluid z-depth-0" style={{height: '10vh'}}/>,

@@ -10,7 +10,8 @@ function ProductDetail(props){
     const [input, setInput] = useState({
         "product": props.detail.id,
         "qty": 1,
-        "size": 'S'
+        "size": 'S',
+        "ordered": false
     })
 
     const changeSize = (size) => {

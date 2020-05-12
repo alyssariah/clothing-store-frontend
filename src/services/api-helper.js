@@ -93,3 +93,27 @@ export const updateCartItem = async (id, body, token) => {
         return err
     }
 }
+export const makeOrder = async (body, token) => {
+    try{const resp = await api.post(`/api/orders/`, body, {
+        headers: {
+            authorization: 'JWT ' + token
+        }
+    })
+    return resp}
+    catch (err){
+        console.log(err)
+        return err
+    }
+}
+export const getOrders = async (token) => {
+    try{const resp = await api.get(`/api/orders-json/`, {
+        headers: {
+            authorization: 'JWT ' + token
+        }
+    })
+    return resp}
+    catch (err){
+        console.log(err)
+        return err
+    }
+}
