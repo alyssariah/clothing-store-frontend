@@ -44,9 +44,9 @@ function Orders(props){
       })
     return(
         <div className="orders">
-        <MDBRow style={{display:'flex', flexDirection: 'column'}}>
+        <div style={{display:'flex', justifyContent: 'center', flexDirection: 'column'}}>
             {renderOrders}
-        </MDBRow>
+        </div>
         </div>
     )
 }

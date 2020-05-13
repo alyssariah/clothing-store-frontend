@@ -37,11 +37,11 @@ const LogIn = (props) => {
   }
   return (
     <>
-      <MDBRow style={{marginTop: '5vh'}}>
+      <MDBRow style={{position: 'absolute', top:'20vh'}}>
         <MDBCol md="4">
           <MDBCard>
-            <MDBCardBody>
-              <form onSubmit={handleLogIn}>
+            <MDBCardBody >
+              <form onSubmit={handleLogIn} >
                 <p className="h4 text-center py-4">Login</p>
                 {alert && <p style={{color: 'red', textAlign: 'center'}}>username and password do not match</p>}
                 <div className="grey-text">

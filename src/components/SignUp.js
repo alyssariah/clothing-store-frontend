@@ -50,8 +50,8 @@ function SignUp(props){
 
   }
   return (
-    <div className="form">
-      <MDBRow style={{marginTop: '5vh'}}>
+    <div className="form" style={{position: 'absolute', top:'20vh'}}>
+      <MDBRow >
         <MDBCol md="4">
           <MDBCard>
             <MDBCardBody>

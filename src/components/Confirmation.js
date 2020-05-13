@@ -11,11 +11,11 @@ function Confirmation(props){
         <p>We're processing your order now, here are the details</p>
         <hr/>
         <div>
-        <h5>Confirmation will be sent to: {props.user.email}</h5>
-        <h5>Order number: #{props.order.id}</h5>
-        <h5>Order date: {formatted_date} </h5>
-        <h5>Order total: ${props.order.total}.00</h5>
-        <Link to='/page'><button>Continue shopping</button></Link>
+            <h5>Confirmation will be sent to: {props.user.email}</h5>
+            <h5>Order number: #{props.order.id}</h5>
+            <h5>Order date: {formatted_date} </h5>
+            <h5>Order total: ${props.order.total}.00</h5>
+            <Link to='/page'><button>Continue shopping</button></Link>
         </div>
     </div>
     </div>       
