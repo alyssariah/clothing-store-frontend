@@ -17,7 +17,9 @@ import Home from './components/Home'
 import SearchPage from './components/SearchPage'
 import ProductDetail from './components/ProductDetail'
 import Orders from './components/Orders'
+import Profile from './components/Profile'
 import {getCartItems} from './services/api-helper'
+
 
 function App() {
   const [user, setUser] = useState(()=>{
@@ -70,8 +72,8 @@ function App() {
               <MDBDropdownToggle nav caret style={{color: 'white'}}>
                 <MDBIcon far icon="user" /><span style={{marginLeft: '15px'}}>My Account</span></MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem href="#!">Profile</MDBDropdownItem>
-                 <Link to='/orders'><MDBDropdownItem href="#!">Orders</MDBDropdownItem></Link>
+                  <Link to='/profile'><MDBDropdownItem href="#!">Profile</MDBDropdownItem></Link>
+                  <Link to='/orders'><MDBDropdownItem href="#!">Orders</MDBDropdownItem></Link>
                   <Link to='/'><MDBDropdownItem href="#!"onClick={()=>{setUser(); localStorage.setItem('user', JSON.stringify(''))}}>Log Out</MDBDropdownItem></Link>
               </MDBDropdownMenu>
             </MDBDropdown>: <Link to='/login' className="profile"><MDBIcon far icon="user" /><span>Login</span></Link>}
@@ -87,6 +89,7 @@ function App() {
           <Route path='/login'><LogIn setUser={setUser} /></Route>
           <Route path='/signup'><SignUp setUser={setUser}/></Route>
           <Route path='/orders'><Orders user={user}/></Route>
+          <Route path='/profile'><Profile user={user}/></Route>
           <Route path='/detail'><ProductDetail detail={detail} user={user} changeCart={changeCart}/></Route>
           <Route path='/cart'><ShoppingCart cart={cart} setCart={setCart} user={user}/></Route>
           <Route path='/checkout'><Checkout /></Route>
