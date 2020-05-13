@@ -55,24 +55,24 @@ function ProductDetail(props){
                 <span>${props.detail.price}.00</span>
                 </div>
             </div>
-        
+
+            {props.detail.category === 'Dresses' || props.detail.category === 'Tops' || props.detail.category === 'Sale'? 
             <div class="product-configuration">
-        
             <div class="cable-config">
                 <span>Size:</span>
                 <div class="cable-choose">
-                    <button onClick={()=>{changeSize("XS")}}>XS</button>
-                    <button onClick={()=>{changeSize("S")}}>S</button>
-                    <button onClick={()=>{changeSize("M")}}>M</button>
-                    <button onClick={()=>{changeSize("L")}}>L</button>
-                    <button onClick={()=>{changeSize("XL")}}>XL</button>
+                    <button id={input.size ==='XS'?'sizeActive': ''}onClick={()=>{changeSize("XS")}}>XS</button>
+                    <button id={input.size ==='S'?'sizeActive': ''} onClick={()=>{changeSize("S")}}>S</button>
+                    <button id={input.size === "M"?'sizeActive': ''} onClick={()=>{changeSize("M")}}>M</button>
+                    <button id={input.size ==='L'?'sizeActive': ''} onClick={()=>{changeSize("L")}}>L</button>
+                    <button id={input.size ==='XL'?'sizeActive': ''}onClick={()=>{changeSize("XL")}}>XL</button>
                 </div>
             </div>
-            </div>
+            </div>: ''}
 
             <div class="checkout">
                 <div><label>Qty</label>
-                <div className="buttons" onClick={()=>{setCount(count-1); minusCount(count-1)}}>-</div>
+                <div className="buttons" onClick={()=>{if(count>1){setCount(count-1); minusCount(count-1)}}}>-</div>
                 <div className="count">{count}</div>
                 <div className="buttons" onClick={()=>{setCount(count+1);addCount(count+1)}}>+</div></div>
                 <a href="#" className="cart-btn" onClick={addToCart}>Add to cart</a>
