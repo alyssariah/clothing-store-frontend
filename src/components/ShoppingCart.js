@@ -57,6 +57,9 @@ function ShoppingCart(props) {
     )
   });
   const handleOrder = async() => {
+    if(!props.user || sortedCart.length === 0){
+      return ' '
+    }
     let items = []
     for(let i=0; i< sortedCart.length; i++){
       items.push(sortedCart[i].id)

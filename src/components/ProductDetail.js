@@ -14,6 +14,7 @@ function ProductDetail(props){
         "ordered": false
     })
     const [viewCart, setViewCart] = useState(false)
+    const [alert, setAlert] = useState(false)
 
     const changeSize = (size) => {
         const newInput = {...input}
@@ -35,7 +36,8 @@ function ProductDetail(props){
 
     const addToCart = async(e) => {
         e.preventDefault()
-        if(!input.size){
+        if(!props.user){
+            setAlert(true)
         }
         else {
         const res = await makeCartItem(input, props.user.token)
@@ -63,6 +65,7 @@ function ProductDetail(props){
                 <Link to='/cart'><MDBBtn color="grey">View Cart</MDBBtn></Link>
             </div>
             </div>}
+            {alert && <h4 style={{position: 'absolute', top: '14vh', color: 'red'}}>You must sign in before adding items to your cart</h4>}
         <div className="left-column">
             <img src={props.detail.pictureUrl}/>
         </div>
