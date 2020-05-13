@@ -1,23 +1,97 @@
 import React from 'react'
-import {  MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbreact";
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardFooter, MDBIcon, MDBTooltip,  MDBBadge, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBBtn } from "mdbreact"
 
 import '../sass/Profile.sass'
 function Profile(props){
     return(
         <div className='profilePage'>
-        
-
-            <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
+          <div className="proInfo">
               <img
                 tag="img"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/768px-Missing_avatar.svg.png"
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
-              <h5 className="font-weight-bold mt-4 mb-3">{props.user.first_name} {props.user.last_name}</h5>
+              <div>
+              <h2 className="font-weight-bold mt-7 mb-7">{props.user.first_name} {props.user.last_name}</h2>
               <p className="grey-text">{props.user.email}</p>
-            </MDBCol>
+              </div>
+          </div>
+          <div className="text-center my-5"style={{margin: '0'}}>
             <h3>Member Benefits</h3>
+        <MDBRow>
+        <MDBCol lg="2" md="6" className="mb-lg-0 mb-4">
+          <MDBCard collection className="z-depth-1-half">
+            <div className="view zoom">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/5.jpg"
+                className="img-fluid"
+                alt=""
+              />
+              <div className="stripe dark">
+                <a href="#!">
+                  <p>
+                    Free Shipping
+                  </p>
+                </a>
+              </div>
+            </div>
+          </MDBCard>
+        </MDBCol>
+        <MDBCol lg="2" md="6" className="mb-lg-0 mb-4">
+          <MDBCard collection className="z-depth-1-half">
+            <div className="view zoom">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg"
+                className="img-fluid"
+                alt=""
+              />
+              <div className="stripe dark">
+                <a href="#!">
+                  <p>
+                    Customization
+                  </p>
+                </a>
+              </div>
+            </div>
+          </MDBCard>
+        </MDBCol>
+        <MDBCol lg="2" md="6" className="mb-lg-0 mb-4">
+          <MDBCard collection className="z-depth-1-half">
+            <div className="view zoom">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/9.jpg"
+                className="img-fluid"
+                alt=""
+              />
+              <div className="stripe dark">
+                <a href="#!">
+                  <p>
+                    Special Sales
+                  </p>
+                </a>
+              </div>
+            </div>
+          </MDBCard>
+        </MDBCol>
+        <MDBCol lg="2" md="6" className="mb-lg-0 mb-4">
+          <MDBCard collection className="z-depth-1-half">
+            <div className="view zoom">
+              <img
+                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/7.jpg"
+                className="img-fluid"
+                alt=""
+              />
+              <div className="dark">
+                  <p>
+                    Full Returns
+                  </p>
+              </div>
+            </div>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+          </div>
 
     </div>
     )
