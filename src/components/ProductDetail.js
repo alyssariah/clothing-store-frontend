@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
+import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn, MDBIcon } from "mdbreact";
 import '../sass/Detail.sass'
 import {makeCartItem} from '../services/api-helper'
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 
 function ProductDetail(props){
@@ -13,6 +13,7 @@ function ProductDetail(props){
         "size": 'S',
         "ordered": false
     })
+    const [viewCart, setViewCart] = useState(false)
 
     const changeSize = (size) => {
         const newInput = {...input}
@@ -39,10 +40,29 @@ function ProductDetail(props){
         else {
         const res = await makeCartItem(input, props.user.token)
         props.changeCart()
+        setViewCart(true)
         }
     }
     return(
         <>
+        {viewCart &&
+            <div className="background">
+            <div className="preview">
+                <MDBIcon icon="times" style={{textAlign:'right', fontSize: '20px'}} onClick={()=>setViewCart(false)}/>
+                <h5><MDBIcon far icon="check-circle" style={{color: '#7DC855'}}/> Added to cart</h5>
+                <div className="currentItem">
+                <img src={props.detail.pictureUrl}/>
+                <div>
+                    <h5>{props.detail.name}</h5>
+                    <p>{props.detail.category}</p>
+                    <p>qty: {input.qty}</p>
+                    <p>size: {input.size}</p>
+                    <p>${props.detail.price}.00</p>
+                </div>
+                </div>
+                <Link to='/cart'><MDBBtn color="grey">View Cart</MDBBtn></Link>
+            </div>
+            </div>}
         <div className="left-column">
             <img src={props.detail.pictureUrl}/>
         </div>

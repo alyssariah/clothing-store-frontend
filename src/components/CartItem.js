@@ -12,7 +12,7 @@ function CartItem(item, removeItem, user, setCart){
     
     return(
         {
-            'img': <img src={item.product.pictureUrl} alt="" className="img-fluid z-depth-0" style={{height: '80px', width: '80px'}}/>,
+            'img': <img src={item.product.pictureUrl} alt="" className="img-fluid z-depth-0" style={{height: '80px', width: '100px'}}/>,
             'product': [<h5 className="mt-3" key={new Date().getDate + 1}><strong>{item.product.name}</strong></h5>, <p key={new
               Date().getDate} className="text-muted"></p>],
             'size': <h5 className="mt-3" >{item.product.category === 'Dresses' || item.product.category === 'Tops' || item.product.category === 'Sale'? item.size: '--'}</h5>,
@@ -20,7 +20,7 @@ function CartItem(item, removeItem, user, setCart){
             'qty': <h5 className="mt-3" ><input style={{width: '2.5vw', textAlign: 'center'}}class="quantity" value={item.qty}  min='1' onChange={handleQty} type="number"/></h5>,
             'button':
             <MDBTooltip placement="top">
-                <MDBBtn className='mt-3' color="light" size="sm" onClick={()=>{removeItem(item.id)}}>
+                <MDBBtn className='mt-3' color="cyan" size="sm" onClick={()=>{removeItem(item.id)}}>
                     X
                 </MDBBtn>
                 <div>Remove item</div>

@@ -135,9 +135,52 @@
         width: 1.5vw
         display: flex
         justify-content: center
+.preview
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  background-color: white
+  z-index: 3
+  border: 2px solid silver
+  position: absolute
+  top: 10vh
+  padding: 20px 30px
+  width: 25vw
+  right: 0
+  i:hover
+    cursor: pointer
+  img
+    height: 120px
+    width: 150px
+  a
+    margin-top: 30px
+    align-self: center
+    width: 15vw
+    button
+      border-radius: 20px
+      width: 15vw
+      font-size: 16px
+      padding: 10px
+      color: white
+    &:hover
 
 
-
+.currentItem
+  display: flex
+  font-size: 16px
+  div 
+    margin-left: 10px
+  h5
+    font-weight: bold
+    margin: 0
+  p
+    margin: 0
+    color: gray
+.background
+  width: 100vw
+  height: 100vh
+  position: absolute
+  background-color: rgba(0,0,0,0.5)
 
  
 
