@@ -64,18 +64,13 @@ function ShoppingCart(props) {
     let results = res2.data.filter((item, index)=> item.ordered === false)
     props.setCart(results)
   }
-  if(rows.length === 0){
-    return(
-      <h3 style={{marginTop: '30px', color:'grey'}}>Your shopping cart is empty</h3>
-    )
-  }
   return (
   <div className="cart">
     <div className="left">
-          <MDBTable className="product-table">
+          {rows.length>0 ? <MDBTable className="product-table">
             <MDBTableHead className="font-weight-bold" color="mdb-color lighten-5" columns={columns} />
             <MDBTableBody rows={rows} />
-          </MDBTable>
+          </MDBTable>: <h3 style={{marginTop: '30px', color:'grey', textAlign: 'center'}}>Your shopping cart is empty</h3>}
     </div>
     <div className="right">
           <h4>Summary</h4>

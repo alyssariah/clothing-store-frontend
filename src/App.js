@@ -41,9 +41,11 @@ function App() {
     const makeAPICall=async()=>{
       const res = await getProducts()
       setProducts(res.data)
-      let res2 = await getCartItems(user.token)
-      let results = res2.data.filter((item, index)=> item.ordered === false)
-      setCart(results)
+      if(user){
+        let res2 = await getCartItems(user.token)
+        let results = res2.data.filter((item, index)=> item.ordered === false)
+        setCart(results)
+      }
     }
     makeAPICall()
   },[])
