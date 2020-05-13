@@ -38,7 +38,7 @@ const SearchPage = (props) => {
   }
   return (
     <div>
-      <h3 style={{textAlign: 'center', marginTop: '20px'}}>Search Results Found...</h3>
+      <h3 style={{textAlign: 'center', marginTop: '20px'}}>{props.searchData.length } search results found...</h3>
       <MDBRow>
         {renderCards}
       </MDBRow>

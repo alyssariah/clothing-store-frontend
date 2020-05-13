@@ -20,7 +20,7 @@ function CartItem(item, removeItem, user, setCart){
             'qty': <h5 className="mt-3" ><input style={{width: '2.5vw', textAlign: 'center'}}class="quantity" value={item.qty}  min='1' onChange={handleQty} type="number"/></h5>,
             'button':
             <MDBTooltip placement="top">
-                <MDBBtn className='mt-3' color="cyan" size="sm" onClick={()=>{removeItem(item.id)}}>
+                <MDBBtn className='mt-3' color="white" size="sm" onClick={()=>{removeItem(item.id)}}>
                     X
                 </MDBBtn>
                 <div>Remove item</div>

@@ -84,7 +84,7 @@ function ShoppingCart(props) {
           <h5>Subtotal: <span>${mytotal}.00</span></h5>
           <hr/>
           <div className="checkout">
-          <MDBBtn className="cart-btn"  color="cyan" size="m" onClick={handleOrder}>
+          <MDBBtn style={{borderRadius: '60px'}}color='grey' onClick={handleOrder}>
           <MDBIcon icon="lock" style={{marginRight: '8px'}} /> Checkout
           </MDBBtn>
           </div>
