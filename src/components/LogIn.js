@@ -64,12 +64,12 @@ const LogIn = (props) => {
                     validate
                   />
                 </div>
-                <div className="text-center py-4 mt-3">
-                  <MDBBtn color="cyan" type="submit">
+                <div className="text-center"  style={{margin: '0', paddingBottom: '30px'}}>
+                  <button className='cart-btn' style={{margin: '0', width: '14vw', borderRadius: '60px', padding:'10px'}}type="submit">
                     LogIn
-                  </MDBBtn>
+                  </button>
                 </div>
-                <p style={{textAlign: 'center'}}>Not a member? <Link to='/signup'>Join now</Link></p>
+                <p style={{textAlign: 'center'}}>Not a member? <Link to='/signup' style={{textDecoration: 'underline'}}>Join now</Link></p>
               </form>
             </MDBCardBody>
           </MDBCard>

@@ -57,7 +57,7 @@ function SignUp(props){
             <MDBCardBody>
               <form onSubmit={handleSignUp}>
                 <p className="h4 text-center py-4">Sign up</p>
-                {alert && <p style={{color: 'red', textAlign: 'center'}}>Error occured. Try again!</p>}
+                {alert && <p style={{color: 'red', textAlign: 'center'}}>Error occured. Try again! <br/> Make sure your password is at least 8 characters long</p>}
                 <div className="grey-text">
                   <MDBInput
                     label="First name"
@@ -107,10 +107,10 @@ function SignUp(props){
                     onChange={handlePassword}
                   />
                 </div>
-                <div className="text-center py-4 mt-3">
-                  <MDBBtn color="cyan" type="submit">
+                <div className="text-center"  style={{margin: '0', paddingBottom: '30px'}}>
+                  <button className='cart-btn' style={{margin: '0', width: '14vw', borderRadius: '60px', padding:'10px'}}type="submit">
                     Register
-                  </MDBBtn>
+                  </button>
                 </div>
               </form>
             </MDBCardBody>

@@ -3,9 +3,12 @@ import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTa
 import '../sass/Cart.sass'
 import {getCartItems, deleteCartItem, makeOrder, updateCartItem} from '../services/api-helper'
 import CartItem from './CartItem'
+import Confirmation from './Confirmation'
 
 function ShoppingCart(props) {
   console.log(props.cart)
+  const[order, setOrder] = useState()
+  const[confirm, showConfirm] = useState(false)
   const [columns, setColumns] = useState([
     {
       label: <strong>Product</strong>,
@@ -59,13 +62,16 @@ function ShoppingCart(props) {
       items.push(sortedCart[i].id)
       const res = await updateCartItem(sortedCart[i].id, {"ordered": true}, props.user.token)
     }
-    const res = await makeOrder({"items": items, "total": mytotal}, props.user.token)
+    const res1 = await makeOrder({"items": items, "total": mytotal}, props.user.token)
+    setOrder(res1.data)
     let res2 = await getCartItems(props.user.token)
     let results = res2.data.filter((item, index)=> item.ordered === false)
     props.setCart(results)
+    showConfirm(true)
   }
   return (
   <div className="cart">
+    {confirm && <Confirmation order={order} user={props.user}/>}
     <div className="left">
           {rows.length>0 ? <MDBTable className="product-table">
             <MDBTableHead className="font-weight-bold" color="mdb-color lighten-5" columns={columns} />
