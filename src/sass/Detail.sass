@@ -1,9 +1,8 @@
 
-
 .left-column 
   width: 40vw
-  height: 80vh
-  margin-top: 20vh
+  display: flex
+  align-items: center
   img
     transition: all 0.3s ease
     width: 30vw
@@ -12,7 +11,8 @@
 
  
 .right-column 
-  margin-top: 20vh
+  display: flex
+  align-items: center
   width: 35%
 
 .product-description 
@@ -143,13 +143,12 @@
   flex-direction: column
   justify-content: space-between
   background-color: white
-  z-index: 3
-  border-bottom: 2px solid silver
-  border-left: 2px solid silver
+  border: 2px solid silver
   position: absolute
-  top: 0.07vh
+  z-index: 3
+  top: 0.3vh
   padding: 20px 30px
-  width: 25vw
+  width: 30vw
   right: 0
   i:hover
     cursor: pointer
@@ -182,7 +181,7 @@
     color: gray
 .background
   width: 100vw
-  height: 100vh
+  height: 90vh
   position: absolute
   background-color: rgba(0,0,0,0.5)
 

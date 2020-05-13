@@ -71,6 +71,7 @@ function ProductDetail(props){
         </div>
 
         <div className="right-column">
+            <div>
             <div className="product-description">
                 <span>{props.detail.category}</span>
                 <h1>{props.detail.name}</h1>
@@ -102,6 +103,7 @@ function ProductDetail(props){
             </div>
             <div className="product-description" style={{margin: '50px 0'}}>
                 <p>{props.detail.description}</p>
+            </div>
             </div>
         </div>
         </>
