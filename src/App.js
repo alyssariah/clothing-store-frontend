@@ -52,7 +52,7 @@ function App() {
     makeAPICall()
   },[])
 
-  const changeCart = async() => {
+  const updateCart = async() => {
     let res = await getCartItems(user.token)
     let results = res.data.filter((item, index)=> item.ordered === false)
     setCart(results)
@@ -83,14 +83,14 @@ function App() {
         <NavbarPage setCategory={setCategory} setSearchData={setSearchData}/>
         <div className="information">
         <Switch>
-          <Route exact path='/'><Home /></Route>
+          <Route exact path='/'><Home setCategory={setCategory} /></Route>
           <Route path='/page'><EcommercePage products={products} category={category} setDetail={setDetail}/></Route>
           <Route path='/search'><SearchPage setDetail={setDetail} searchData={searchData}/></Route>
           <Route path='/login'><LogIn setUser={setUser} setCart={setCart} /></Route>
           <Route path='/signup'><SignUp setUser={setUser}/></Route>
           <Route path='/orders'><Orders user={user}/></Route>
           <Route path='/profile'><Profile user={user}/></Route>
-          <Route path='/detail'><ProductDetail detail={detail} user={user} changeCart={changeCart}/></Route>
+          <Route path='/detail'><ProductDetail detail={detail} user={user} updateCart={updateCart}/></Route>
           <Route path='/cart'><ShoppingCart cart={cart} setCart={setCart} user={user}/></Route>
           <Route path='/checkout'><Checkout /></Route>
           <Redirect to ='/'></Redirect>

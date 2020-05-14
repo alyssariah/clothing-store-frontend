@@ -34,15 +34,15 @@ function ProductDetail(props){
     }
 
 
-    const addToCart = async(e) => {
-        e.preventDefault()
+    const addToCart = async() => {
         if(!props.user){
             setAlert(true)
         }
         else {
         await makeCartItem(input, props.user.token)
-        props.changeCart()
+        props.updateCart()
         setViewCart(true)
+        setTimeout(() => setViewCart(false), 3000)
         }
     }
     return(
