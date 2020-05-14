@@ -50,10 +50,10 @@ function SignUp(props){
 
   }
   return (
-    <div className="form" style={{position: 'absolute', top:'20vh'}}>
+    <>
       <MDBRow >
-        <MDBCol md="4">
-          <MDBCard>
+        <MDBCol md='0'>
+          <MDBCard style={{width:'40vw'}}>
             <MDBCardBody>
               <form onSubmit={handleSignUp}>
                 <p className="h4 text-center py-4">Sign up</p>
@@ -118,7 +118,7 @@ function SignUp(props){
         </MDBCol>
       </MDBRow>
     {verify && <Redirect to="/" />}
-    </div>
+    </>
   );
 };
 
