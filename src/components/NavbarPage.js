@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {
-MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
-MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
+MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
+MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
 } from "mdbreact";
 import {Link, Redirect} from 'react-router-dom'
 import '../sass/Navbar.sass'
@@ -12,13 +12,6 @@ import {searchData} from '../services/api-helper'
 function NavbarPage(props) {
   const [search, setSearch] = useState('')
   const [showResults, setShowResults] = useState(false)
-// state = {
-//   isOpen: false
-// };
-
-// toggleCollapse = () => {
-//   this.setState({ isOpen: !this.state.isOpen });
-// }
   const handleSearch =(e)=>{
     setSearch(e.target.value)
   }
@@ -41,8 +34,6 @@ function NavbarPage(props) {
         </MDBNavbarBrand>
         <MDBNavbarToggler/>
         <MDBCollapse id="navbarCollapse3"navbar>
-        {/* <MDBNavbarToggler onClick={this.toggleCollapse} /> */}
-        {/* <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar> */}
           <MDBNavbarNav left>
             <MDBNavItem active>
               <MDBNavLink to="/page" onClick={()=> {props.setCategory("Dresses")
@@ -87,11 +78,6 @@ function NavbarPage(props) {
               <input className="form-control" type="text" value={search} placeholder="Search" aria-label="Search" onChange={handleSearch} />
             </MDBCol>
           </form>
-              {/* <MDBFormInline waves>
-                <div className="md-form my-0">
-                  <input className="form-control mr-sm-2" style={{color:'black'}} type="text" placeholder='Search' aria-label="Search" />
-                </div>
-              </MDBFormInline> */}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>

@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn, MDBIcon } from "mdbreact";
+import React, {useState} from "react";
+import {  MDBTable, MDBTableBody, MDBTableHead, MDBBtn, MDBIcon } from "mdbreact";
 import '../sass/Cart.sass'
 import {getCartItems, deleteCartItem, makeOrder, updateCartItem} from '../services/api-helper'
 import CartItem from './CartItem'
@@ -38,7 +38,7 @@ function ShoppingCart(props) {
 
 
   const removeItem = async(id) => {
-    const res = await deleteCartItem(id, props.user.token)
+    await deleteCartItem(id, props.user.token)
     let res2 = await getCartItems(props.user.token)
     let results = res2.data.filter((item, index)=> item.ordered === false)
     props.setCart(results)
@@ -63,7 +63,7 @@ function ShoppingCart(props) {
     let items = []
     for(let i=0; i< sortedCart.length; i++){
       items.push(sortedCart[i].id)
-      const res = await updateCartItem(sortedCart[i].id, {"ordered": true}, props.user.token)
+      await updateCartItem(sortedCart[i].id, {"ordered": true}, props.user.token)
     }
     const res1 = await makeOrder({"items": items, "total": mytotal}, props.user.token)
     setOrder(res1.data)

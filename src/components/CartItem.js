@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn } from "mdbreact";
+import React from 'react'
+import { MDBTooltip, MDBBtn } from "mdbreact";
 import {updateCartItem, getCartItems,} from '../services/api-helper'
 
 function CartItem(item, removeItem, user, setCart){
     const handleQty = async(e) => {
-        const res = await updateCartItem(item.id, {"qty": e.target.value}, user.token)
+        await updateCartItem(item.id, {"qty": e.target.value}, user.token)
         let res2 = await getCartItems(user.token)
         let results = res2.data.filter((item, index)=> item.ordered === false)
         setCart(results)

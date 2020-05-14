@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import {getOrders} from '../services/api-helper'
-import {MDBCard, MDBCardBody, MDBRow} from  "mdbreact"
+import {MDBCard, MDBCardBody} from  "mdbreact"
 import '../sass/Order.sass'
 
 
@@ -26,7 +26,7 @@ function Orders(props){
                   <>
                   <div className="orderItem">
                       <div>
-                      <div className="product"><img src={item.product.pictureUrl} style={{height: '80px', width: '100px'}}/>
+                      <div className="product"><img src={item.product.pictureUrl} style={{height: '80px', width: '100px'}} alt="product"/>
                       <h3>{item.product.name} <div className="qty">Qty: {item.qty}</div> <p>Size: {item.size}</p></h3></div></div>
                       ${item.product.price * item.qty}.00
                   </div>

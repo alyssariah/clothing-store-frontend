@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import { MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
 import {registerNewUser} from '../services/api-helper'
 import {Redirect} from 'react-router-dom'
 

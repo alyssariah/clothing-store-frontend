@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {  MDBRow, MDBCol, MDBCard, MDBCardImage, MDBCardBody, MDBBadge } from "mdbreact";
+import React from "react";
+import {  MDBRow, MDBCol, MDBCard, MDBCardImage } from "mdbreact";
 import {Link} from 'react-router-dom'
 
 

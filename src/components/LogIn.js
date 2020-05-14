@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn, MDBCard, MDBCardBody } from 'mdbreact';
+import { MDBRow, MDBCol, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
 import {Link, Redirect} from 'react-router-dom'
-import {loginUser} from '../services/api-helper'
+import {loginUser, getCartItems} from '../services/api-helper'
 
 const LogIn = (props) => {
   const [value, setValue] = useState({
@@ -32,6 +32,9 @@ const LogIn = (props) => {
       localStorage.setItem('user', JSON.stringify(res.data))
       setVerify(true)
       props.setUser(res.data)
+      let res2 = await getCartItems(res.data.token)
+      let results = res2.data.filter((item, index)=> item.ordered === false)
+      props.setCart(results)
     }
 
   }

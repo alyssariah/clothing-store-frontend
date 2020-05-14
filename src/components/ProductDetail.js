@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import { MDBRow, MDBCard, MDBCardBody, MDBTooltip, MDBTable, MDBTableBody, MDBTableHead, MDBInput, MDBBtn, MDBIcon } from "mdbreact";
+import { MDBBtn, MDBIcon } from "mdbreact";
 import '../sass/Detail.sass'
 import {makeCartItem} from '../services/api-helper'
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function ProductDetail(props){
@@ -40,7 +40,7 @@ function ProductDetail(props){
             setAlert(true)
         }
         else {
-        const res = await makeCartItem(input, props.user.token)
+        await makeCartItem(input, props.user.token)
         props.changeCart()
         setViewCart(true)
         }
@@ -53,7 +53,7 @@ function ProductDetail(props){
                 <MDBIcon icon="times" style={{textAlign:'right', fontSize: '20px'}} onClick={()=>setViewCart(false)}/>
                 <h5><MDBIcon far icon="check-circle" style={{color: '#7DC855'}}/> Added to cart</h5>
                 <div className="currentItem">
-                <img src={props.detail.pictureUrl}/>
+                <img src={props.detail.pictureUrl} alt="product"/>
                 <div>
                     <h5>{props.detail.name}</h5>
                     <p>{props.detail.category}</p>
@@ -67,7 +67,7 @@ function ProductDetail(props){
             </div>}
             {alert && <h4 style={{position: 'absolute', top: '14vh', color: 'red'}}>You must sign in before adding items to your cart</h4>}
         <div className="left-column">
-            <img src={props.detail.pictureUrl}/>
+            <img src={props.detail.pictureUrl} alt="product"/>
         </div>
 
         <div className="right-column">
@@ -99,7 +99,7 @@ function ProductDetail(props){
                 <div className="buttons" onClick={()=>{if(count>1){setCount(count-1); minusCount(count-1)}}}>-</div>
                 <div className="count">{count}</div>
                 <div className="buttons" onClick={()=>{setCount(count+1);addCount(count+1)}}>+</div></div>
-                <a href="#" className="cart-btn" onClick={addToCart}>Add to cart</a>
+                <button className="cart-btn" onClick={addToCart}>Add to cart</button>
             </div>
             <div className="product-description" style={{margin: '50px 0'}}>
                 <p>{props.detail.description}</p>

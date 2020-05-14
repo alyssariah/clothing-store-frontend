@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
-import { MDBBtn, MDBCol, MDBContainer, MDBRow, MDBIcon } from "mdbreact";
+import { MDBIcon } from "mdbreact";
 import "./sass/App.sass";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBFormInline,
   MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
   } from "mdbreact";
 import NavbarPage from './components/NavbarPage.js'
@@ -26,6 +25,7 @@ function App() {
     const result = localStorage.getItem('user')
     return result? JSON.parse(result): []
   })
+  console.log("user", user)
   const [products, setProducts] = useState([])
   const [category, setCategory] = useState(()=>{
     const result = localStorage.getItem('category')
@@ -35,7 +35,7 @@ function App() {
   const [searchData, setSearchData] = useState([])
   const [detail, setDetail] = useState(()=>{
     const result = localStorage.getItem('detail')
-    return result? JSON.parse(result): []
+    return result? JSON.parse(result): ''
   })
   const [cart, setCart] = useState([])
 
@@ -43,7 +43,7 @@ function App() {
     const makeAPICall=async()=>{
       const res = await getProducts()
       setProducts(res.data)
-      if(user){
+      if(user.email){
         let res2 = await getCartItems(user.token)
         let results = res2.data.filter((item, index)=> item.ordered === false)
         setCart(results)
@@ -62,12 +62,12 @@ function App() {
       <>
         <header>
           <div className="icons">
-            <a href="http://www.facebook.com" target="_blank"><MDBIcon fab icon="facebook-f" /></a>
-            <a href="http://www.instagram.com" target="_blank"><MDBIcon fab icon="instagram" /></a>
-            <a href="http://www.twitter.com" target="_blank"><MDBIcon fab icon="twitter" /></a>
+            <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer"><MDBIcon fab icon="facebook-f" /></a>
+            <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"><MDBIcon fab icon="instagram" /></a>
+            <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer"><MDBIcon fab icon="twitter" /></a>
           </div>
           <div className="cartsection">
-          {user ? 
+          {user? 
             <MDBDropdown>
               <MDBDropdownToggle nav caret style={{color: 'white', padding: '0 15px'}}>
                 <MDBIcon far icon="user" /><span style={{marginLeft: '15px'}}>My Account</span></MDBDropdownToggle>
@@ -86,7 +86,7 @@ function App() {
           <Route exact path='/'><Home /></Route>
           <Route path='/page'><EcommercePage products={products} category={category} setDetail={setDetail}/></Route>
           <Route path='/search'><SearchPage setDetail={setDetail} searchData={searchData}/></Route>
-          <Route path='/login'><LogIn setUser={setUser} /></Route>
+          <Route path='/login'><LogIn setUser={setUser} setCart={setCart} /></Route>
           <Route path='/signup'><SignUp setUser={setUser}/></Route>
           <Route path='/orders'><Orders user={user}/></Route>
           <Route path='/profile'><Profile user={user}/></Route>
