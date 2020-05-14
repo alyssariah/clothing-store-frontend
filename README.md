@@ -3,13 +3,15 @@ This project is a mock up of a clothing store. It has a navigation bar with a dr
 
 ## Deployment
 -Deployment of frontend to netlify: https://clothingstore-simplybasic.netlify.app/
+
 -Deployment of backend to heroku: https://alyssariah-clothing-store.herokuapp.com/
 
 ## Motivation
-I want to freelance and have templates and examples I can show clients. This projects is obviously not a real clothing store but a mock up to show clients the design and functionality of the site. 
+This site is to be used as a template or an example to show clients what I can do. This projects is obviously not a real clothing store but a mock up to show clients the design and functionality of the site. 
 
 ## Code Style
 -For the backend I used Python in Django
+
 -For the frontend I used JSX in React with MDBootstrap 
 
 ## Screenshot
@@ -17,21 +19,25 @@ I want to freelance and have templates and examples I can show clients. This pro
 
 ## Tech/framework used
 -React
+
 -MDBootstrap
+
 -Python
+
 -Django
+
 -PostgreSQL
 
 
 ## Features
-Search bar:  A user can type in a word into the search field and the backend will search through the titles and categories to find a matching word. The frontend then will display those products that have the matching term.
+Search bar:  A user can type a word into the search field and the backend will search through the titles and categories to find a matching word. The frontend will display those products that have the matching term.
 
 Add to cart: When a user adds an item to their cart, a popup shows that they have added an item to their cart. They have an option to view their cart or the popup will timeout in 3 seconds.
 
-Shopping cart functionality: A user can edit the quantity of the products in their shopping cart, which also automatically updates price. A user can also delete and item from the cart and a number near the cart icon keeps track of how many items are in the cart.
+Shopping cart functionality: A user can edit the quantity of the products in their shopping cart, which also automatically updates the price. A user can also delete an item from the cart and a number near the cart icon keeps track of how many items are in the cart.
 
 ## Code Example 
-Javascript for adding item to cart on the front end
+Javascript for adding item to cart on the frontend
 ```
 const addToCart = async() => {
         if(!props.user){
@@ -57,10 +63,10 @@ class Order(models.Model):
 
 ## How to use?
 Login or create your own account on the site. You can then checkout the links under your account tab(profile and orders).
-Treat the website like a normal clothing store website. Shop around, view different types of clothing, pick your sizes and quantities, and add to your cart. 
+Treat the website like a normal clothing store website: shop around, view different types of clothing, pick your sizes and quantities, and add to your cart. 
 
 ## Contribute 
-Here are some following guidelines to contribute to Simply Basic. Fork and clone and run npm install. 
+Here are some following guidelines to contribute to Simply Basic. Fork and clone this repository and run npm install. 
 
 ### Write detailed information
 Detailed information is very helpful to understand an issue.
