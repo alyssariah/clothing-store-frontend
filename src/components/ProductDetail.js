@@ -74,7 +74,7 @@ function ProductDetail(props){
             <div>
             <div className="product-description">
                 <span>{props.detail.category}</span>
-                <h1>{props.detail.name}</h1>
+                <h2>{props.detail.name}</h2>
                 <div class="product-price">
                 <span>${props.detail.price}.00</span>
                 </div>

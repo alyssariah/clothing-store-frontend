@@ -69,7 +69,7 @@ function App() {
           <div className="cartsection">
           {user ? 
             <MDBDropdown>
-              <MDBDropdownToggle nav caret style={{color: 'white'}}>
+              <MDBDropdownToggle nav caret style={{color: 'white', padding: '0 15px'}}>
                 <MDBIcon far icon="user" /><span style={{marginLeft: '15px'}}>My Account</span></MDBDropdownToggle>
                 <MDBDropdownMenu>
                   <Link to='/profile'><MDBDropdownItem href="#!">Profile</MDBDropdownItem></Link>
