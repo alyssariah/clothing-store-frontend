@@ -76,7 +76,7 @@ function App() {
                   <Link to='/orders'><MDBDropdownItem href="#!">Orders</MDBDropdownItem></Link>
                   <Link to='/'><MDBDropdownItem href="#!"onClick={()=>{setUser(); localStorage.setItem('user', JSON.stringify(''))}}>Log Out</MDBDropdownItem></Link>
               </MDBDropdownMenu>
-            </MDBDropdown>: <Link to='/login' className="profile"><MDBIcon far icon="user" /><span>Login</span></Link>}
+            </MDBDropdown>: <Link to='/login' className="profile"><MDBIcon far icon="user" /><p>Login</p></Link>}
           <Link to='/cart'><MDBIcon icon="shopping-basket" /><span className="counter">{cart.length >0? cart.length: ''}</span></Link>
           </div>
         </header>
