@@ -39,10 +39,10 @@ const LogIn = (props) => {
 
   }
   return (
-    <>
+    <div className="formPage">
       <MDBRow >
         <MDBCol md="0">
-          <MDBCard style={{width:'40vw'}}>
+          <MDBCard>
             <MDBCardBody >
               <form onSubmit={handleLogIn}  >
                 <p className="h4 text-center py-4">Login</p>
@@ -68,7 +68,7 @@ const LogIn = (props) => {
                   />
                 </div>
                 <div className="text-center"  style={{margin: '0', paddingBottom: '30px'}}>
-                  <button className='cart-btn' style={{margin: '0', width: '14vw', borderRadius: '60px', padding:'10px'}}type="submit">
+                  <button className='cart-btn' style={{margin: '0', borderRadius: '60px', padding:'10px'}}type="submit">
                     LogIn
                   </button>
                 </div>
@@ -79,7 +79,7 @@ const LogIn = (props) => {
         </MDBCol>
       </MDBRow>
       {verify && <Redirect to="/" />}
-    </>
+    </div>
   );
 };
 

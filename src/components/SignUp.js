@@ -50,10 +50,10 @@ function SignUp(props){
 
   }
   return (
-    <>
+    <div className="formPage">
       <MDBRow >
         <MDBCol md='0'>
-          <MDBCard style={{width:'40vw'}}>
+          <MDBCard >
             <MDBCardBody>
               <form onSubmit={handleSignUp}>
                 <p className="h4 text-center py-4">Sign up</p>
@@ -89,15 +89,6 @@ function SignUp(props){
                     success="right"
                     onChange={handleEmail}
                   />
-                  {/* <MDBInput
-                    label="Confirm your email"
-                    icon="exclamation-triangle"
-                    group
-                    type="text"
-                    validate
-                    error="wrong"
-                    success="right"
-                  /> */}
                   <MDBInput
                     label="Your password"
                     icon="lock"
@@ -108,7 +99,7 @@ function SignUp(props){
                   />
                 </div>
                 <div className="text-center"  style={{margin: '0', paddingBottom: '30px'}}>
-                  <button className='cart-btn' style={{margin: '0', width: '14vw', borderRadius: '60px', padding:'10px'}}type="submit">
+                  <button className='cart-btn' style={{margin: '0', borderRadius: '60px', padding:'10px'}}type="submit">
                     Register
                   </button>
                 </div>
@@ -118,7 +109,7 @@ function SignUp(props){
         </MDBCol>
       </MDBRow>
     {verify && <Redirect to="/" />}
-    </>
+    </div>
   );
 };
 
