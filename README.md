@@ -10,12 +10,14 @@ This project is a mock up of a clothing store. It has a navigation bar with a dr
 This site is to be used as a template or an example to show clients what I can do. This projects is obviously not a real clothing store but a mock up to show clients the design and functionality of the site. 
 
 ## Code Style
--For the backend I used Python in Django
+-Backend: Python 
 
--For the frontend I used JSX in React with MDBootstrap 
+-Frontend: JSX
 
 ## Screenshot
 ![Preview of Project](Screenshot.png "Preview of Project")
+![Preview of Project](Clothing.png "Preview of Project")
+![Preview of Project](Cart.jpeg "Preview of Project")
 
 ## Tech/framework used
 -React
@@ -34,7 +36,7 @@ Search bar:  A user can type a word into the search field and the backend will s
 
 Add to cart: When a user adds an item to their cart, a popup shows that they have added an item to their cart. They have an option to view their cart or the popup will timeout in 3 seconds.
 
-Shopping cart functionality: A user can edit the quantity of the products in their shopping cart, which also automatically updates the price. A user can also delete an item from the cart and a number near the cart icon keeps track of how many items are in the cart.
+Shopping cart: A user can edit the quantity of the products in their shopping cart, which also automatically updates the price. A user can also delete an item from the cart and a number near the cart icon keeps track of how many items are in the cart.
 
 ## Code Example 
 Javascript for adding item to cart on the frontend
@@ -51,9 +53,41 @@ const addToCart = async() => {
         }
     }
 ```
-Python for Order model on the backend
+API call for search bar
+```
+export const searchData = async(term) => {
+    try{const resp = await api.get('/api/search/',{
+        params: {
+            q: term
+        }
+    })
+    return resp
+    }
+    catch (err){
+        console.log(err)
+        return err
+    }
+}
 
 ```
+
+Python models on the backend
+
+```
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    pictureUrl = models.CharField(max_length=255)
+    price = models.IntegerField()
+    description = models.TextField(blank=True)
+    category = models.CharField(max_length=100, choices=[('Dresses', 'Dresses'), ('Tops', 'Tops'), ('Bottoms', 'Bottoms'), ('Necklaces', 'Necklaces'), ('Bracelets', 'Bracelets'), ('Earrings', 'Earrings'), ('Sale', 'Sale'),])
+
+class CartItem(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, default=1)
+    qty = models.IntegerField(default=1)
+    size = models.CharField(max_length=100, choices=[('XS', 'XS'), ('S', 'S'), ('M', 'M'), ('L', 'L'), ('XL', 'XL'), ])
+    ordered = models.BooleanField(default=False)
+
 class Order(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     items = models.ManyToManyField(CartItem)
