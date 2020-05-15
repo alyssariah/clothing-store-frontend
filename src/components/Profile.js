@@ -1,7 +1,7 @@
 import React from 'react'
 import {MDBRow, MDBCol, MDBCard } from "mdbreact"
-
 import '../sass/Profile.sass'
+
 function Profile(props){
     return(
         <div className='profilePage'>
@@ -32,24 +32,6 @@ function Profile(props){
                 <a href="#!">
                   <p>
                     Free Shipping
-                  </p>
-                </a>
-              </div>
-            </div>
-          </MDBCard>
-        </MDBCol>
-        <MDBCol lg="2" md="6" className="mb-lg-0 mb-4">
-          <MDBCard collection className="z-depth-1-half">
-            <div className="view zoom">
-              <img
-                src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/8.jpg"
-                className="img-fluid"
-                alt=""
-              />
-              <div className="stripe dark">
-                <a href="#!">
-                  <p>
-                    Customization
                   </p>
                 </a>
               </div>

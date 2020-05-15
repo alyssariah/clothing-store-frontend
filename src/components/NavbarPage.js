@@ -18,7 +18,6 @@ function NavbarPage(props) {
   const submitSearch = async(e) =>{
     e.preventDefault()
     const res = await searchData(search)
-    console.log(res.data)
     props.setSearchData(res.data)
     setShowResults(true)
     setShowResults(false)

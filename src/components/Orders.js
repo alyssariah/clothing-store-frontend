@@ -6,7 +6,6 @@ import '../sass/Order.sass'
 
 function Orders(props){
     const [orders, setOrders] = useState([])
-    console.log('token', props.user.token)
     useEffect(()=>{
         const makeAPICall=async()=>{
             const res = await getOrders(props.user.token)
@@ -19,7 +18,6 @@ function Orders(props){
         return a.id - b.id 
       }).reverse()
       const renderOrders = sortedOrders.map((order, index)=>{
-          console.log('order', order)
           let formatted_date = new Date(order.created_at).toString()
           const renderItems = order.items.map((item, index)=>{
               return(

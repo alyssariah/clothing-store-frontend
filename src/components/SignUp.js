@@ -38,7 +38,6 @@ function SignUp(props){
   const handleSignUp = async(e) =>{
     e.preventDefault()
     const res = await registerNewUser(value)
-    console.log(res)
     if(!res.data){
       setAlert(true)
     }

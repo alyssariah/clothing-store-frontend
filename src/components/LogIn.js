@@ -24,7 +24,6 @@ const LogIn = (props) => {
   const handleLogIn = async(e) =>{
     e.preventDefault()
     const res = await loginUser(value)
-    console.log(res)
     if(!res.data){
       setAlert(true)
     }
