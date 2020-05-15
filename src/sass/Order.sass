@@ -4,12 +4,13 @@
         padding: 0
 .card
     margin-top: 40px
+    width: 80vw
 .orderHeader
     display: flex
     justify-content: space-between
     padding: 10px
     background-color: #F6F6F6
-    font-size: 15px
+    font-size: 8px
 .orderItem
     padding: 20px
     display: flex
@@ -18,11 +19,38 @@
     .product
         display: flex
         p
-            font-size: 14px
+            font-size: 12px
         h3
+            font-size: 16px
             padding-left: 10px
             margin: 0
         section
             align-self: flex-end
     .qty
-        font-size: 14px
+        font-size: 12px
+@media(min-width: 768px)
+    .orderItem
+        padding: 20px
+        display: flex
+        justify-content: space-between
+        border-top: 1px solid rgba(0,0,0,0.1)
+        .product
+            display: flex
+            p
+                font-size: 16px
+            h3
+                font-size: 24px
+       
+        .qty
+            font-size: 16px
+    .orderHeader
+        display: flex
+        justify-content: space-between
+        padding: 10px
+        background-color: #F6F6F6
+        font-size: 15px
+
+
+@media(min-width: 1024px)
+    .card 
+        width: 60vw

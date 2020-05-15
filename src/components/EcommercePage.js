@@ -3,6 +3,7 @@ import { MDBRow, MDBCol, MDBCard, MDBCardImage } from "mdbreact";
 import '../sass/Page.sass'
 import {Link} from 'react-router-dom'
 
+
 const EcommercePage = (props) => {
 
   const handleDetails = (product) => {
@@ -13,7 +14,7 @@ const EcommercePage = (props) => {
   const renderCards = props.products.map((product, index)=>{
     if(product.category === props.category){
       return(
-        <MDBCol lg="3" md="6" className="mb-lg-20 mb-4" key={index} style={{margin: '0px 20px'}}>
+        <MDBCol lg="3" md="5" className="mb-lg-20 mb-4" key={index} style={{margin: '0px 20px'}}>
           <Link to='/detail'><MDBCard className="align-items-center" style={{backgroundColor: 'white'}} onClick={()=> handleDetails(product)}>
             <MDBCardImage style={{height: '300px'}}
               src={product.pictureUrl}

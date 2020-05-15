@@ -46,7 +46,7 @@ function ProductDetail(props){
         }
     }
     return(
-        <>
+        <div className="detailContainer">
         {viewCart &&
             <div className="background">
             <div className="preview">
@@ -106,7 +106,7 @@ function ProductDetail(props){
             </div>
             </div>
         </div>
-        </>
+        </div>
     )
 }
 export default ProductDetail

@@ -5,11 +5,11 @@ import {
   MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem
   } from "mdbreact";
 import NavbarPage from './components/NavbarPage.js'
+import Hamburger from './components/Hamburger'
 import EcommercePage from './components/EcommercePage'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import ShoppingCart from './components/ShoppingCart'
-import Checkout from './components/Checkout'
 import {Route, Link, Switch, Redirect} from 'react-router-dom'
 import {getProducts} from './services/api-helper'
 import Home from './components/Home'
@@ -18,6 +18,7 @@ import ProductDetail from './components/ProductDetail'
 import Orders from './components/Orders'
 import Profile from './components/Profile'
 import {getCartItems} from './services/api-helper'
+import MediaQuery from 'react-responsive'
 
 
 function App() {
@@ -80,7 +81,12 @@ function App() {
           <Link to='/cart'><MDBIcon icon="shopping-basket" /><span className="counter">{cart.length >0? cart.length: ''}</span></Link>
           </div>
         </header>
-        <NavbarPage setCategory={setCategory} setSearchData={setSearchData}/>
+        <MediaQuery query='(min-device-width: 1024px)'>
+          <NavbarPage setCategory={setCategory} setSearchData={setSearchData}/>
+        </MediaQuery>
+        <MediaQuery query='(max-device-width: 1024px)'>
+          <Hamburger setCategory={setCategory} setSearchData={setSearchData} />
+        </MediaQuery>
         <div className="information">
         <Switch>
           <Route exact path='/'><Home setCategory={setCategory} /></Route>
@@ -92,7 +98,6 @@ function App() {
           <Route path='/profile'><Profile user={user}/></Route>
           <Route path='/detail'><ProductDetail detail={detail} user={user} updateCart={updateCart}/></Route>
           <Route path='/cart'><ShoppingCart cart={cart} setCart={setCart} user={user}/></Route>
-          <Route path='/checkout'><Checkout /></Route>
           <Redirect to ='/'></Redirect>
         </Switch> 
         </div>

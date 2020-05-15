@@ -28,13 +28,13 @@ function Orders(props){
                       <div>
                       <div className="product"><img src={item.product.pictureUrl} style={{height: '80px', width: '100px'}} alt="product"/>
                       <h3>{item.product.name} <div className="qty">Qty: {item.qty}</div> <p>Size: {item.size}</p></h3></div></div>
-                      ${item.product.price * item.qty}.00
+                      <p>${item.product.price * item.qty}.00</p>
                   </div>
                   </>
               )
           })
           return(
-              <MDBCard key={index} style={{width: '60vw'}}>
+              <MDBCard key={index}>
                   <MDBCardBody>
                     <div className="orderHeader"><div>Total<br/> ${order.total}.00</div> <div>Order Placed <br/>{formatted_date}</div><div> Order Number <br/> {order.id}</div></div>
                   <div>{renderItems}</div>

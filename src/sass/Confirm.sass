@@ -1,16 +1,17 @@
 .cover
+    align-self: center
     display: flex
     justify-content: center
     position: absolute
     background-color: white
     z-index: 1
-    top: 12vh
+    top: 16vh
     width: 90vw
     height: 80vh
 .confirm
     border: 1px solid rgba(0,0,0, 0.3)
-    padding: 20px 40px
-    height: 74vh
+    padding: 20px
+    height: 80vh
     h2  
         padding: 10px
     h2, p
@@ -25,6 +26,27 @@
             margin-top: 30px
             align-self: center
         button
+            width: 50vw
+            padding: 10px
+            background-color: #555553
+            color: white
+            text-transform: uppercase
+            flex: 1
+            border-radius: 30px
+            &:hover
+                cursor: pointer
+@media(min-width: 768px)
+    .confirm
+        height: 60vh
+
+
+@media(min-width: 1024px)
+    .cover
+        top: 12vh
+    .confirm
+        padding: 20px 40px
+        height: 74vh
+    button
             width: 15vw
             padding: 10px
             background-color: #555553

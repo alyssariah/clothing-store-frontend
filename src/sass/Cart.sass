@@ -1,32 +1,80 @@
-.cart 
-    width: 90vw
+.cart
+    margin-top: 40px
     display: flex
-    justify-content: space-between
-    margin-top: 80px
-.left
-    width: 40vw
-.right
-    width: 30vw
-    margin-right: 40px
-    h4
-        text-align: center
-    h5
-        display: flex
-        justify-content: space-between
-    .checkout
-        display: flex
-        justify-content: center
-        button
-            margin: 0
-            flex: 1
-            font-size: 16px
-            text-transform: uppercase
-            padding: 12px
-.product-table
-    width: 50vw
-td
-    padding-top: 20px
+    flex-direction: column
+    h5  
+        font-size: 12px
+    img 
+        height: 20px
+.left 
+    width: 80vw
 th
-    background-color: #E0E0E0
     strong
-        font-size: 18px
+        font-size: 8px
+td  
+    font-size: 8px
+.checkout
+    display: flex
+    justify-content: center
+    button
+        margin: 0
+        flex: 1
+        font-size: 14px
+        text-transform: uppercase
+        padding: 12px
+.right
+    h4
+        font-size: 20px
+    h5
+        font-size: 16px
+
+
+@media(min-width: 768px)
+    .cart
+        img
+            height: 80px
+            width: 100px
+        h5
+            font-size: 20px
+    td
+        padding-top: 20px
+    th
+        background-color: #E0E0E0
+        strong
+            font-size: 14px
+    .checkout
+        button
+            padding: 12px
+
+
+@media(min-width: 1024px)
+    .cart 
+        margin-top: 0
+        width: 90vw
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        margin-top: 80px
+
+    .left
+        width: 40vw
+    .right
+        width: 30vw
+        margin-right: 40px
+        h4
+            text-align: center
+        h5
+            display: flex
+            justify-content: space-between
+        .checkout
+            button
+                font-size: 16px
+                text-transform: uppercase
+    .product-table
+        width: 50vw
+    td
+        padding-top: 20px
+    th
+        background-color: #E0E0E0
+        strong
+            font-size: 18px

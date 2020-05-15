@@ -1,58 +1,50 @@
-
-.left-column 
-  width: 40vw
-  display: flex
-  align-items: center
-  img
-    transition: all 0.3s ease
-    width: 30vw
-    height: 45vh
-  
-
- 
-.right-column 
-  display: flex
-  align-items: center
-  width: 35%
-
-.product-description 
-  border-bottom: 1px solid #E1E8EE
-  margin-bottom: 20px
-
-.product-description span 
-  font-size: 12px
-  color: #358ED7
-  letter-spacing: 1px
-  text-transform: uppercase
-  text-decoration: none
-
-.product-description h1 
-  font-weight: 300
-  font-size: 52px
-  color: #43484D
-  letter-spacing: -2px
-
-.product-description p 
-  font-size: 16px
-  font-weight: 300
-  color: #86939E
-  line-height: 24px
-.product-color 
-  margin-bottom: 30px
-
- 
-.color-choose div 
-  display: inline-block
-
- 
-.cable-choose 
-  margin-bottom: 20px
-
- 
-.cable-choose 
+@media(min-width: 0px)
+  .detailContainer 
+    width: 100vw 
     display: flex
-
-    button 
+    flex-direction: column
+  .left-column 
+    margin-top: 80px
+    width: 40vw
+    align-self: center
+    display: flex
+    justify-content: center
+    img
+      transition: all 0.3s ease
+      width: 80vw
+      height: 40vh
+  .right-column 
+    margin-top: 40px
+    align-self: center
+    align-items: center
+    display: flex
+    width: 80vw
+  .product-description 
+    border-bottom: 1px solid #E1E8EE
+    margin-bottom: 20px
+    span 
+      font-size: 12px
+      color: #358ED7
+      letter-spacing: 1px
+      text-transform: uppercase
+      text-decoration: none
+    h2
+      font-weight: 300
+      font-size: 30px
+      color: #43484D
+      letter-spacing: -2px
+    p 
+      font-size: 12px
+      font-weight: 300
+      color: #86939E
+      line-height: 24px
+  .color-choose div 
+    display: inline-block
+  .cable-choose 
+    margin-bottom: 20px
+  .cable-choose 
+      display: flex
+      button 
         border: 2px solid #E1E8EE
         border-radius: 6px
         padding: 10px 20px
@@ -65,64 +57,49 @@
         transition: all .5s
         display: flex
         align-items: center
-        justify-content: center
-       
-
-
- 
-.cable-choose button:hover,
-.cable-choose button:active,
-.cable-choose button:focus,
-.cable-choose button:target
-  border: 2px solid #86939E
-  outline: none
-#sizeActive 
-  border: 2px solid #86939E
- 
-.cable-config 
-  border-bottom: 1px solid #E1E8EE
-  margin-bottom: 20px
-
-
-.product-price 
-  display: flex
-  align-items: center
-
- 
-.product-price span 
-  font-size: 26px
-  font-weight: 300
-  color: #43474D
-  margin-right: 20px
-
- 
-.cart-btn 
-  display: inline-block
-  //background-color: #7DC855
-  //background-color: #55D6BE
-  background-color: #509DF2
-  border-radius: 6px
-  font-size: 16px
-  color: #FFFFFF
-  text-decoration: none
-  padding: 10px 30px
-  transition: all .5s
-  margin-left: 150px
-
-.cart-btn:hover 
-  //background-color: #64af3d
-  background-color: #3C84E1
-  color: white
-.checkout 
+        justify-content: center  
+  .cable-choose button:hover,
+  .cable-choose button:active,
+  .cable-choose button:focus,
+  .cable-choose button:target
+    border: 2px solid #86939E
+    outline: none
+  #sizeActive 
+    border: 2px solid #86939E
+  .cable-config 
+    border-bottom: 1px solid #E1E8EE
+    margin-bottom: 20px
+  .product-price 
+    display: flex
+    align-items: center
+  .product-price span 
+    font-size: 20px
+    font-weight: 300
+    color: #43474D
+    margin-right: 20px
+  .cart-btn 
+    display: inline-block
+    background-color: #509DF2
+    border-radius: 6px
+    font-size: 14px
+    color: #FFFFFF
+    text-decoration: none
+    padding: 10px 30px
+    transition: all .5s
+    margin-left: 80px
+  .cart-btn:hover 
+    background-color: #3C84E1
+    color: white
+  .checkout 
     display: flex
     align-items: center
     div
-        display: flex
-        justify-content: space-between
-        align-items: center
+      display: flex
+      justify-content: space-between
+      align-items: center
     label
-        margin: 0
-        margin-right: 20px
+      margin: 0
+      margin-right: 10px
     .buttons 
       display: flex
       justify-content: center
@@ -135,55 +112,184 @@
       &:hover
         cursor: pointer
     .count 
-        width: 1.5vw
-        display: flex
-        justify-content: center
-.preview
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  background-color: white
-  border: 2px solid silver
-  position: absolute
-  z-index: 3
-  top: 0.3vh
-  padding: 20px 30px
-  width: 30vw
-  right: 0
-  i:hover
-    cursor: pointer
-  img
-    height: 120px
-    width: 150px
-  a
-    margin-top: 30px
-    align-self: center
-    width: 15vw
-    button
-      border-radius: 20px
+      width: 5vw
+      display: flex
+      justify-content: center
+  .preview
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    background-color: white
+    border: 2px solid silver
+    position: absolute
+    z-index: 3
+    top: 4.5vh
+    padding: 20px 30px
+    width: 70vw
+    right: 0
+    i:hover
+      cursor: pointer
+    img
+      height: 80px
+      width: 100px
+    a
+      margin-top: 20px
+      align-self: center
       width: 15vw
-      font-size: 16px
-      padding: 10px
-      color: white
-    &:hover
+      button
+        border-radius: 20px
+        width: 30vw
+        font-size: 14px
+        padding: 5px
+        color: white
+      &:hover
+  .currentItem
+    display: flex
+    font-size: 12px
+    div 
+      margin-left: 10px
+    h5
+      font-weight: bold
+      margin: 0
+    p
+      margin: 0
+      color: gray
+  .background
+    width: 100vw
+    height: 90vh
+    position: absolute
+    background-color: rgba(0,0,0,0.5)
 
-
-.currentItem
+@media(min-width: 768px)
+  .left-column 
+  width: 40vw
   display: flex
-  font-size: 16px
-  div 
-    margin-left: 10px
-  h5
-    font-weight: bold
-    margin: 0
-  p
-    margin: 0
-    color: gray
-.background
-  width: 100vw
-  height: 90vh
-  position: absolute
-  background-color: rgba(0,0,0,0.5)
+  align-items: center
+  img
+    transition: all 0.3s ease
+    width: 30vw
+    height: 30vh
+  .product-description 
+    span 
+      font-size: 12px
+      color: #358ED7
+      letter-spacing: 1px
+      text-transform: uppercase
+      text-decoration: none
+    h2
+      font-weight: 300
+      font-size: 52px
+      color: #43484D
+      letter-spacing: -2px
+    p 
+      font-size: 16px
+      font-weight: 300
+      color: #86939E
+      line-height: 24px
+  .product-price span 
+    font-size: 26px
+  .cart-btn 
+    display: inline-block
+    background-color: #509DF2
+    border-radius: 6px
+    font-size: 14px
+    color: #FFFFFF
+    text-decoration: none
+    padding: 15px 30px
+    transition: all .5s
+    margin-left: 300px
+  .preview
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    background-color: white
+    border: 2px solid silver
+    position: absolute
+    z-index: 3
+    top: 2vh
+    padding: 20px 30px
+    width: 50vw
+    right: 0
+    i:hover
+      cursor: pointer
+    img
+      height: 120px
+      width: 150px
+    a
+      margin-top: 30px
+      align-self: center
+      width: 15vw
+      button
+        border-radius: 20px
+        width: 15vw
+        font-size: 16px
+        padding: 10px
+        color: white
+      &:hover
+  .currentItem
+    display: flex
+    font-size: 16px
+    div 
+      margin-left: 10px
+    h5
+      font-weight: bold
+      margin: 0
+    p
+      margin: 0
+      color: gray
+
+  
+@media(min-width: 1024px)
+  .detailContainer
+    flex-direction: row
+    justify-content: center
+  .left-column 
+    margin-top: 0
+    width: 40vw
+    display: flex
+    align-items: center
+    justify-content: start
+    img
+      transition: all 0.3s ease
+      width: 30vw
+      height: 45vh
+  .right-column 
+    display: flex
+    align-items: center
+    width: 35%
+    .cart-btn 
+      display: inline-block
+      //background-color: #7DC855
+      //background-color: #55D6BE
+      background-color: #509DF2
+      border-radius: 6px
+      font-size: 16px
+      color: #FFFFFF
+      text-decoration: none
+      padding: 10px 30px
+      transition: all .5s
+      margin-left: 150px
+    .cart-btn:hover 
+      //background-color: #64af3d
+      background-color: #3C84E1
+      color: white
+    .count
+      width: 1.5vw
+      display: flex
+      justify-content: center
+    label
+        margin-right: 20px
+  .preview
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    background-color: white
+    border: 2px solid silver
+    position: absolute
+    z-index: 3
+    top: 0.3vh
+    padding: 20px 30px
+    width: 30vw
 
  
 

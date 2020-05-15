@@ -1,14 +1,35 @@
 .home
-    display: flex
     img
-        width: 33.3vw
-        height: 90vh
+        width: 100vw
+        height: 80vh
     h1
-        font-size: 50px
+        font-size: 30px
         position: absolute
-        top: 50vh
-        right: 38vw
+        top: 45vh
+        right: 20vw
         color: white
         background-color: rgba(192,192,192, 0.5)
         border-radius: 10px
         padding: 10px
+
+@media(min-width: 768px)
+    .home
+        img
+            width: 100vw
+            height: 100vh
+        h1
+            font-size: 50px
+            top: 45vh
+            right: 25vw
+        
+
+@media(min-width: 1024px)
+    .home
+        display: flex
+        img
+            width: 33.3vw
+            height: 90vh
+        h1
+            font-size: 50px
+            top: 50vh
+            right: 38vw
