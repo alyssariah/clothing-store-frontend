@@ -77,22 +77,23 @@
     font-weight: 300
     color: #43474D
     margin-right: 20px
-  .cart-btn 
-    display: inline-block
-    background-color: #509DF2
-    border-radius: 6px
-    font-size: 14px
-    color: #FFFFFF
-    text-decoration: none
-    padding: 10px 30px
-    transition: all .5s
-    margin-left: 80px
-  .cart-btn:hover 
-    background-color: #3C84E1
-    color: white
+  
   .checkout 
     display: flex
     align-items: center
+    .cart-btn 
+      background-color: #509DF2
+      border-radius: 6px
+      font-size: 14px
+      color: #FFFFFF
+      text-decoration: none
+      padding: 10px
+      transition: all .5s
+      margin-left: 80px
+      width: 5vw
+    .cart-btn:hover 
+      background-color: #3C84E1
+      color: white
     div
       display: flex
       justify-content: space-between
@@ -162,9 +163,9 @@
 
 @media(min-width: 768px)
   .left-column 
-  width: 40vw
-  display: flex
-  align-items: center
+    width: 40vw
+    display: flex
+    align-items: center
   img
     transition: all 0.3s ease
     width: 30vw
@@ -172,7 +173,6 @@
   .product-description 
     span 
       font-size: 12px
-      color: #358ED7
       letter-spacing: 1px
       text-transform: uppercase
       text-decoration: none
@@ -188,16 +188,9 @@
       line-height: 24px
   .product-price span 
     font-size: 26px
-  .cart-btn 
-    display: inline-block
-    background-color: #509DF2
-    border-radius: 6px
-    font-size: 14px
-    color: #FFFFFF
-    text-decoration: none
-    padding: 15px 30px
-    transition: all .5s
-    margin-left: 300px
+  .checkout 
+    .cart-btn
+      margin-left: 300px
   .preview
     display: flex
     flex-direction: column
@@ -268,7 +261,7 @@
       text-decoration: none
       padding: 10px 30px
       transition: all .5s
-      margin-left: 150px
+      margin-left: 200px
     .cart-btn:hover 
       //background-color: #64af3d
       background-color: #3C84E1

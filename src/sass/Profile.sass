@@ -1,38 +1,66 @@
-@media(min-width: 1024px)
-    .profilePage
-        margin-top: 4vh
+.profilePage
+    margin-top: 4vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    h3
+        margin-top: 0
+    .col-lg-2 
         display: flex
-        flex-direction: column
-        align-items: center
+        justify-content: center
+    .card
+        width: 70vw
+        img
+            width: 70vw
 
-        h3
-            margin-top: 0
 
+.proInfo
+    display: flex
+    align-items: center
+    width: 80vw
+    margin-top: 30px
+    div
+        margin-left: 20px
+        h2
+            margin-top: 20px
+    img
+        width: 80px
+        height: 80px
+    p 
+        font-size: 16px
+    
+.dark
+    display: flex
+    justify-content: center
+    align-items: center
+    position: absolute
+    color: white 
+    top: 10vh
+    background-color: rgba(0,0,0,0.7)
+    width: 100%
+    padding: 20px
+    p
+        color: white
+        margin: 0
+        text-transform: uppercase
+@media(min-width: 768px)
+    .profilePage
+        .card
+            width: 40vw
+            img
+                width: 40vw
     .proInfo
         display: flex
+        align-items: center
         width: 80vw
         div
             margin-left: 50px
-            h2
-                margin-top: 60px
-
+        h2
+            margin-top: 30px
         img
-            width: 200px
-        
+            width: 100px
+            height: 100px
         p 
             font-size: 20px
-        
-    .dark
-        display: flex
-        justify-content: center
-        align-items: center
-        position: absolute
-        color: white 
-        top: 10vh
-        background-color: rgba(0,0,0,0.7)
-        width: 15vw
-        padding: 20px
-        p
-            color: white
-            margin: 0
-            text-transform: uppercase
+
+    
