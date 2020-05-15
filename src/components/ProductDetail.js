@@ -42,7 +42,7 @@ function ProductDetail(props){
         await makeCartItem(input, props.user.token)
         props.updateCart()
         setViewCart(true)
-        setTimeout(() => setViewCart(false), 3000)
+        setTimeout(() => setViewCart(false), 4000)
         }
     }
     return(
