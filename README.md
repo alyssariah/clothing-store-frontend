@@ -14,7 +14,7 @@ This site is to be used as a template or an example to show clients what I can d
 
 -Frontend: JSX
 
-## Screenshot
+## Screenshots
 ![Preview of Project](Screenshot.png "Preview of Project")
 ![Preview of Project](Clothing.png "Preview of Project")
 ![Preview of Project](Cart.jpeg "Preview of Project")
